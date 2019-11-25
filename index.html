@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+<style>
+div{
+  text-align: center;
+}
+body {
+        font-family: 'Oswald', sans-serif;
+        font-size: 32px;
+      }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+ top: 0;
+ left: 0;
+ /* Preserve aspet ratio */
+ min-width: 100%;
+ min-height: 16px;
+  background-color: #4781BF;
+}
+body {
+  background-image: url('resources/background.jpg');
+  background-size: cover;
+  position: fixed;
+ top: 16px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #4A546B;
+}/
+</style>
+</head>
+<br><br><br><br>
+<body onload="startTime()">
+
+  <div style="text-align:center; color:white;font-size:64px" id="txt"></div>
+
+<ul>
+  <li><a href="lifeClock.html">Life Clock</a></li>
+  <li><a href="focus.html">Focus Tips</a></li>
+  <li><a href="mind.html">Mindfullness</a></li>
+  <li><a href="goals.html">Goals</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
+
+</body>
+</html>
