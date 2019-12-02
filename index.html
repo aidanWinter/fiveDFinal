@@ -2,6 +2,8 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+<!-- Creates Clock -->
   <script>
 function startTime() {
   var today = new Date();
@@ -15,11 +17,13 @@ function startTime() {
   var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10) {i = "0" + i};
   return i;
 }
 </script>
 <style>
+
+/* Style for clock */
 div{
   position: absolute;
   left: 40vw;
@@ -27,18 +31,28 @@ div{
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #000000;
 }
+
+/* Style for Welcome Header */
 h1{
   color:white;
   position: absolute;
-  left: 45vw;
+  left: 43vw;
   top: 40vh;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #000000;
 }
+
+/* Style for whole body */
 body {
-        font-family: 'Oswald', sans-serif;
-        font-size: 32px;
+      background-image: url('resources/background.jpg');
+      background-size: cover;
+      position: fixed;
+      top: 16px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 32pt;
       }
+
+/* Style for top tabs */
 ul {
   list-style-type: none;
   margin: 0;
@@ -47,23 +61,19 @@ ul {
   position: fixed;
  top: 0;
  left: 0;
- /* Preserve aspet ratio */
+ /* Preserve aspect ratio */
  min-width: 100%;
- min-height: 16px;
+ min-height: 16pt;
  opacity: 0.5;
   background-color: #4781BF;
 }
-body {
-  background-image: url('resources/background.jpg');
-  background-size: cover;
-  position: fixed;
-  top: 16px;
-}
 
+/* Floats list Left */
 li {
   float: left;
 }
 
+/*  */
 li a {
   display: inline-block;
   color: white;
@@ -71,18 +81,24 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
+/* Changes color of tab when mouse hovers */
 li a:hover {
   background-color: #4A546B;
-}/
+}
+
 </style>
+
 </head>
 
+<!-- Body -->
 <body onload="startTime()">
 
+  <!-- Initializes clock -->
   <div style="color:white;font-size:128px" id="txt"></div>
+
   <h1>Welcome</h1>
 
+<!-- Top tabs -->
 <ul>
   <li><a href="index.html">Home</a></li>
   <li><a href="lifeClock.html">Life Clock</a></li>
