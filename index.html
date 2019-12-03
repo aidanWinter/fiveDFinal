@@ -24,9 +24,10 @@ function checkTime(i) {
 <style>
 
 /* Style for clock */
-div{
-  position: absolute;
-  left: 40vw;
+h2{
+  color: white;
+  position: relative;
+  text-align: center;
   top: 30vh;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #000000;
@@ -34,10 +35,9 @@ div{
 
 /* Style for Welcome Header */
 h1{
+  position:relative;
   color:white;
-  position: absolute;
-  left: 43vw;
-  top: 40vh;
+  top: 19vh;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #000000;
 }
@@ -46,7 +46,6 @@ h1{
 body {
       background-image: url('resources/background.jpg');
       background-size: cover;
-      position: fixed;
       top: 16px;
       font-family: 'Oswald', sans-serif;
       font-size: 32pt;
@@ -94,16 +93,16 @@ li a:hover {
 <body onload="startTime()">
 
   <!-- Initializes clock -->
-  <div style="color:white;font-size:128px" id="txt"></div>
+  <h2 style="text-align: center; color:white;font-size:128px" id="txt"></h2>
 
-  <h1>Welcome</h1>
+  <h1 style="text-align:center">Welcome</h1>
 
 <!-- Top tabs -->
 <ul>
   <li><a href="index.html">Home</a></li>
   <li><a href="lifeClock.html">Life Clock</a></li>
   <li><a href="focus.html">Focus Tips</a></li>
-  <li><a href="mind.html">Mindfullness</a></li>
+  <li><a href="mind.html">Mindfulness</a></li>
   <li><a href="goals.html">Goals</a></li>
   <li><a href="about.html">About</a></li>
 </ul>

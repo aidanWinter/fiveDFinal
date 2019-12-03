@@ -72,11 +72,11 @@ ul li {
   left: 25vw;
   width: 50vw;
   height: 4vh;
-  top: 18vh;
-  padding: 12px 8px 12px 40px;
+  top: 41.5vh;
+  padding: 1.2vh .8vw 1.2vh 5vw;
   list-style-type: none;
   background: #eee;
-  font-size: 18px;
+  font-size: 2vh;
   transition: 0.2s;
   opacity: 0.4;
 
@@ -111,9 +111,9 @@ ul li.checked::before {
   position: absolute;
   border-color: #fff;
   border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
+  border-width: 0 0.02vw 0.02vw 0;
+  top: 1vh;
+  left: 2vw;
   transform: rotate(45deg);
   height: 15px;
   width: 7px;
@@ -124,7 +124,7 @@ ul li.checked::before {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 12px 16px 12px 16px;
+  padding: 0.60vh 2vw 0.6vh 2vw;
 }
 
 .close:hover {
@@ -135,15 +135,15 @@ ul li.checked::before {
 /* Style the header */
 .header {
   background-color: #808080;
-  padding: 3vh 4vw 15vh 4vw;
+  padding: 5vh 1vw 5vh 1vw;
   color: white;
   text-align: center;
   opacity: 0.4;
   width: 50vw;
-  height: 15vh;
+  height: 20vh;
   position: absolute;
   left: 25vw;
-  top: 11.5vh;
+  top: 21.5vh;
 }
 
 /* Clear floats after the header */
@@ -159,20 +159,20 @@ input {
   border: none;
   border-radius: 0;
   width: 75%;
-  padding: 10px;
+  padding: 1vh;
   float: left;
-  font-size: 16px;
+  font-size: 2vh;
 }
 
 /* Style the "Add" button */
 .addBtn {
-  padding: 10px;
+  padding: 0.75vh;
   width: 25%;
   background: #d9d9d9;
   color: #555;
   float: left;
   text-align: center;
-  font-size: 16px;
+  font-size: 2vh;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
@@ -188,18 +188,15 @@ input {
   <li1><a href="index.html">Home</a></li1>
   <li1><a href="lifeClock.html">Life Clock</a></li1>
   <li1><a href="focus.html">Focus Tips</a></li1>
-  <li1><a href="mind.html">Mindfullness</a></li1>
+  <li1><a href="mind.html">Mindfulness</a></li1>
   <li1><a href="goals.html">Goals</a></li1>
   <li1><a href="about.html">About</a></li1>
 </ul1>
 </body1>
-
-<br><br><br><br><br><br>
-
 <body2>
 
 <div id="myDIV" class="header">
-  <h2 style="margin:5px">My To Do List</h2>
+  <h2 style="margin:0vh">My To Do List</h2>
   <input type="text" id="myInput" placeholder="Title...">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
