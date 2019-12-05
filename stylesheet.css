@@ -1,0 +1,40 @@
+/* Style for whole body */
+body {
+      background-size: cover;
+      top: 2vh;
+      font-family: 'Oswald', sans-serif;
+      font-size: 3vh;
+      }
+
+/* Style for top tabs */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 2vh;
+  opacity: 0.5;
+  background-color: #4781BF;
+}
+
+/* Floats list Left */
+li {
+  float: left;
+}
+
+/*  */
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 1vh 2vh;
+  text-decoration: none;
+}
+/* Changes color of tab when mouse hovers */
+li a:hover {
+  background-color: #4A546B;
+}

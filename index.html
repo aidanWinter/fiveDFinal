@@ -2,18 +2,20 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <title> Welcome to LifeClock</title>
 
 <!-- Creates Clock -->
   <script>
 function startTime() {
   var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
+  var hours = today.getHours();
+  var minutes = today.getMinutes();
+  var seconds = today.getSeconds();
+  minutes = checkTime(minutes);
+  seconds = checkTime(seconds);
   document.getElementById('txt').innerHTML =
-  h + ":" + m + ":" + s;
+  hours + ":" + minutes + ":" + seconds;
   var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
@@ -22,9 +24,12 @@ function checkTime(i) {
 }
 </script>
 <style>
+body{
+  background-image: url('resources/background.jpg');
+}
 
 /* Style for clock */
-h2{
+h1{
   color: white;
   position: relative;
   text-align: center;
@@ -34,55 +39,12 @@ h2{
 }
 
 /* Style for Welcome Header */
-h1{
+h2{
   position:relative;
   color:white;
   top: 19vh;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #000000;
-}
-
-/* Style for whole body */
-body {
-      background-image: url('resources/background.jpg');
-      background-size: cover;
-      top: 16px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 32pt;
-      }
-
-/* Style for top tabs */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: fixed;
- top: 0;
- left: 0;
- /* Preserve aspect ratio */
- min-width: 100%;
- min-height: 16pt;
- opacity: 0.5;
-  background-color: #4781BF;
-}
-
-/* Floats list Left */
-li {
-  float: left;
-}
-
-/*  */
-li a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-/* Changes color of tab when mouse hovers */
-li a:hover {
-  background-color: #4A546B;
 }
 
 </style>
@@ -93,9 +55,9 @@ li a:hover {
 <body onload="startTime()">
 
   <!-- Initializes clock -->
-  <h2 style="text-align: center; color:white;font-size:128px" id="txt"></h2>
-
-  <h1 style="text-align:center">Welcome</h1>
+  <h1 style="text-align: center; color:white;font-size:10vh" id="txt"></h1>
+  <!-- Initializes welcome -->
+  <h2 style="text-align:center">Welcome</h2>
 
 <!-- Top tabs -->
 <ul>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <title>Life Clock</title>
+<style>
+
+body {
+        font-family: 'Oswald', sans-serif;
+        font-size: 3vh;
+        background-image: url('resources/lifeclock background.jpg');
+  		background-size: cover;
+  		position: fixed;
+  		top: 2vh;
+      }
+
+h1 {
+        position: relative;
+        text-align: center;
+        font-family: 'Oswald', sans-serif;
+        font-size: 6vh;
+        color: black;
+        text-shadow: -1px 1px 0 #ffffff,
+                      1px 1px 0 #ffffff,
+                      1px -1px 0 #ffffff,
+                      -1px -1px 0 #ffffff;
+      }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+ top: 0;
+ left: 0;
+ /* Preserve aspet ratio */
+ min-width: 100%;
+ min-height: 16px;
+ opacity: 0.5;
+  background-color: #800080;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #4d004d;
+}
+
+.text {
+    padding-top: 275px;
+	width: 100%;
+	text-align: center;
+}
+
+.container {
+	padding-top: 10px;
+	width: 100vw;
+	text-align: center;
+}
+
+.timer1 {
+	padding: 10px;
+	overflow: hidden;
+	display: inline-block;
+	border: 7px solid #efefef;
+	border-radius: 5px;
+	position: center;
+	box-shadow:
+		inset 0 -2px 10px 1px rgba(0, 0, 0, 0.75),
+		0 5px 20px -10px rgba(0, 0, 0, 1);
+}
+
+.cell {
+	/*Should only display 1 digit. Hence height = line height of .numbers
+	and width = width of .numbers*/
+	width: 0.60em;
+	height: 40px;
+	font-size: 50px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+}
+
+.numbers1 {
+	width: 0.6em;
+	line-height: 40px;
+	font-family: digital, arial, verdana;
+	text-align: center;
+	color: #fff;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*Styles for the controls*/
+#timer_controls1 {
+	margin-top: -2vh;
+}
+#timer_controls1 label {
+	cursor: pointer;
+	padding: 5px 10px;
+	background: #efefef;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	border-radius: 0 0 3px 3px;
+}
+input[name="controls1"] {display: none;}
+
+/*Control code*/
+#stop1:checked~.timer1 .numbers1 {animation-play-state: paused;}
+#start1:checked~.timer1 .numbers1 {animation-play-state: running;}
+#reset1:checked~.timer1 .numbers1 {animation: none;}
+
+.movetenone {
+	/*The digits move but dont look good. We will use steps now
+	10 digits = 10 steps. You can now see the digits swapping instead of
+	moving pixel-by-pixel*/
+	animation: movetenone 1s steps(10, end) infinite;
+	/*By default animation should be paused*/
+	animation-play-state: paused;
+}
+.movesixone {
+	animation: movesixone 1s steps(6, end) infinite;
+	animation-play-state: paused;
+}
+
+/*Now we need to sync the animation speed with time speed*/
+/*One second per digit. 10 digits. Hence 10s*/
+.second1 {animation-duration: 10s;}
+.tensecond1 {animation-duration: 60s;} /*60 times .second*/
+
+.milisecond1 {animation-duration: 1s;} /*1/10th of .second*/
+.tenmilisecond1 {animation-duration: 0.1s;}
+
+.minute1 {animation-duration: 600s;} /*60 times .second*/
+.tenminute1 {animation-duration: 3600s;} /*60 times .minute*/
+
+.hour1 {animation-duration: 36000s;} /*60 times .minute*/
+.tenhour1 {animation-duration: 360000s;} /*10 times .hour*/
+
+@keyframes movetenone {
+	0% {top: 0;}
+	100% {top: -400px;}
+	/*height = 40. digits = 10. hence -400 to move it completely to the top*/
+}
+
+@keyframes movesixone {
+	0% {top: 0;}
+	100% {top: -240px;}
+	/*height = 40. digits = 6. hence -240 to move it completely to the top*/
+}
+
+.timer2 {
+	padding: 10px;
+	overflow: hidden;
+	display: inline-block;
+	border: 7px solid #efefef;
+	border-radius: 5px;
+	position: center;
+	box-shadow:
+		inset 0 -2px 10px 1px rgba(0, 0, 0, 0.75),
+		0 5px 20px -10px rgba(0, 0, 0, 1);
+}
+
+.numbers2 {
+	width: 0.6em;
+	line-height: 40px;
+	font-family: digital, arial, verdana;
+	text-align: center;
+	color: #fff;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*Styles for the controls*/
+#timer_controls2 {
+	margin-top: -25px;
+}
+#timer_controls2 label {
+	cursor: pointer;
+	padding: 5px 10px;
+	background: #efefef;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	border-radius: 0 0 3px 3px;
+}
+input[name="controls2"] {display: none;}
+
+/*Control code*/
+#stop2:checked~.timer2 .numbers2 {animation-play-state: paused;}
+#start2:checked~.timer2 .numbers2 {animation-play-state: running;}
+#reset2:checked~.timer2 .numbers2 {animation: none;}
+
+.movetentwo {
+	/*The digits move but dont look good. We will use steps now
+	10 digits = 10 steps. You can now see the digits swapping instead of
+	moving pixel-by-pixel*/
+	animation: movetentwo 1s steps(10, end) infinite;
+	/*By default animation should be paused*/
+	animation-play-state: paused;
+}
+.movesixtwo {
+	animation: movesixtwo 1s steps(6, end) infinite;
+	animation-play-state: paused;
+}
+
+/*Now we need to sync the animation speed with time speed*/
+/*One second per digit. 10 digits. Hence 10s*/
+.second2 {animation-duration: 10s;}
+.tensecond2 {animation-duration: 60s;} /*60 times .second*/
+
+.milisecond2 {animation-duration: 1s;} /*1/10th of .second*/
+.tenmilisecond2 {animation-duration: 0.1s;}
+
+.minute2 {animation-duration: 600s;} /*60 times .second*/
+.tenminute2 {animation-duration: 3600s;} /*60 times .minute*/
+
+.hour2 {animation-duration: 36000s;} /*60 times .minute*/
+.tenhour2 {animation-duration: 360000s;} /*10 times .hour*/
+
+@keyframes movetentwo {
+	0% {top: 0;}
+	100% {top: -400px;}
+	/*height = 40. digits = 10. hence -400 to move it completely to the top*/
+}
+
+@keyframes movesixtwo {
+	0% {top: 0;}
+	100% {top: -240px;}
+	/*height = 40. digits = 6. hence -240 to move it completely to the top*/
+}
+
+</style>
+</head>
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="lifeClock.html">Life Clock</a></li>
+  <li><a href="focus.html">Focus Tips</a></li>
+  <li><a href="mind.html">Mindfulness</a></li>
+  <li><a href="goals.html">Goals</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
+
+<table>
+	<div class="text" style="float: left; width: 50vw; text-align: center;">
+		<h1>Productivity</h1>
+	</div>
+	<div class="text" style="float: left;  width: 50vw; text-align: center;">
+		<h1>Distraction</h1>
+	</div>
+</table>
+
+
+<table>
+  <div class="container" style="float: left; width: 50vw">
+	<!-- time to add the controls -->
+	<input id="start1" name="controls1" type="radio" />
+	<input id="stop1" name="controls1" type="radio" />
+	<input id="reset1" name="controls1" type="radio" />
+	<div class="timer1">
+		<div class="cell">
+			<div class="numbers1 tenhour1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell">
+			<div class="numbers1 hour1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers1">:</div></div>
+		<div class="cell">
+			<div class="numbers1 tenminute1 movesixone">0 1 2 3 4 5 6</div>
+		</div>
+		<div class="cell">
+			<div class="numbers1 minute1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers1">:</div></div>
+		<div class="cell">
+			<div class="numbers1 tensecond1 movesixone">0 1 2 3 4 5 6</div>
+		</div>
+		<div class="cell">
+			<div class="numbers1 second1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers1">:</div></div>
+		<div class="cell">
+			<div class="numbers1 milisecond1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell">
+			<div class="numbers1 tenmilisecond1 movetenone">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+
+	</div>
+	<!-- Lables for the controls -->
+	<div id="timer_controls1">
+		<label for="start1">Start</label>
+		<label for="stop1">Stop</label>
+		<label for="reset1">Reset</label>
+	</div>
+</div>
+  <div class="container" style=" padding-left: 0vw;">
+	<!-- time to add the controls -->
+	<input id="start2" name="controls2" type="radio" />
+	<input id="stop2" name="controls2" type="radio" />
+	<input id="reset2" name="controls2" type="radio" />
+	<div class="timer2">
+		<div class="cell">
+			<div class="numbers2 tenhour2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell">
+			<div class="numbers2 hour2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers2">:</div></div>
+		<div class="cell">
+			<div class="numbers2 tenminute2 movesixtwo">0 1 2 3 4 5 6</div>
+		</div>
+		<div class="cell">
+			<div class="numbers2 minute2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers2">:</div></div>
+		<div class="cell">
+			<div class="numbers2 tensecond2 movesixtwo">0 1 2 3 4 5 6</div>
+		</div>
+		<div class="cell">
+			<div class="numbers2 second2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell divider"><div class="numbers2">:</div></div>
+		<div class="cell">
+			<div class="numbers2 milisecond2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+		<div class="cell">
+			<div class="numbers2 tenmilisecond2 movetentwo">0 1 2 3 4 5 6 7 8 9</div>
+		</div>
+
+	</div>
+	<!-- Lables for the controls -->
+	<div id="timer_controls2">
+		<label for="start2">Start</label>
+		<label for="stop2">Stop</label>
+		<label for="reset2">Reset</label>
+	</div>
+</div>
+</table>
+
+</body>
+</html>
